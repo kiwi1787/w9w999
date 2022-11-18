@@ -164,3 +164,9 @@ local OptionSection = Option:NewSection("UI")
 OptionSection:NewKeybind("Toggling UI", "Basically M", Enum.KeyCode.M, function()
 	Library:ToggleUI()
 end)
+
+--Credit
+local Credit = Window:NewTab("Credit")
+local CreditSection = Credit:NewSection("Credit")
+
+CreditSection:NewLabel("Made by w9w999")
