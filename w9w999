@@ -136,7 +136,7 @@ game:GetService("ReplicatedStorage").Skill:FireServer(unpack(args))
 
 end)
 
-FightSection:NewButton("Godmode", "Be a God", function()
+FightSection:NewButton("Godmode(Not Work!)", "(Not Work)", function()
     local humanoid = game.Players.LocalPlayer.Character.Humanoid
 
 humanoid.HealthChanged:Connect(function(health)
