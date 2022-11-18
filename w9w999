@@ -1,0 +1,166 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("UBB KILLER", "Ocean")
+
+--main
+local Main = Window:NewTab("Teleport")
+local MainSection = Main:NewSection("General")
+
+
+MainSection:NewButton("Sans AU", "Teleport to Sans AU room", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(42950, 160, 5947)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+MainSection:NewButton("Gaster", "Teleport to Gaster", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(1421, 121, 18416)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+MainSection:NewButton("EGG", "EGG", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(2170, 140, 614)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+--Farm
+local Farm = Window:NewTab("Farm")
+local FarmSection = Farm:NewSection("Farm(Not AutoFarm)")
+
+FarmSection:NewButton("Flowey 1~3 Lv", "Flowey", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(-169, 156, -157)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("Toriel 3~6 Lv", "Toriel", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(-175, 164, 288)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("HM Toriel 6~9 Lv", "HM Toriel", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(-34, 156, -334)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("HM Papyrus 9~14 Lv", "HM Papyrus", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(-63, 156, -334)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("undyne the undying 14~54 Lv", "undyne the undying", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(1983, 165, -29)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("Dust Sans 54~71 Lv (Reset:3)", "Dust", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(42904, 158, 5886)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("Geno Sans 71~86 Lv (Reset:4)", "Geno", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(42904, 158, 5868)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("Killer Sans 86~100 Lv (Reset:4)", "Killer", function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(42904, 158, 5848)
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait(0.1)
+pl.CFrame = location
+end)
+
+FarmSection:NewButton("Reset", "Reset", function()
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.leaderstats.Resets
+}
+
+game:GetService("ReplicatedStorage").ResetsClick:FireServer(unpack(args))
+
+end)
+
+
+--Fight
+local Fight = Window:NewTab("Fight Option")
+local FightSection = Fight:NewSection("Skill")
+
+FightSection:NewKeybind("Chara Mod :)", "Increasing Q skill dmg", Enum.KeyCode.F, function()
+local args = {
+    [1] = "RealKnife",
+    [2] = workspace.Game.Mobs.Dummy,
+    [3] = 999999999,
+    [4] = "Skill1",
+    [5] = 0.5
+}
+
+game:GetService("ReplicatedStorage").Skill:FireServer(unpack(args))
+
+end)
+
+FightSection:NewButton("Godmode", "Be a God", function()
+    local humanoid = game.Players.LocalPlayer.Character.Humanoid
+
+humanoid.HealthChanged:Connect(function(health)
+    humanoid.Health = 1000
+end)
+end)
+
+--Local Player
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("LocalPlayer")
+
+PlayerSection:NewSlider("WalkSpeed", "Speed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+
+--Option
+local Option = Window:NewTab("Option")
+local OptionSection = Option:NewSection("UI")
+
+OptionSection:NewKeybind("Toggling UI", "Basically M", Enum.KeyCode.M, function()
+	Library:ToggleUI()
+end)
